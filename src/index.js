@@ -9,20 +9,37 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter} from "react-router-dom";
+import {IntlProvider} from 'react-intl';
+import localeEsMessages from "./locales/es";
+import localeEnMessages from "./locales/en";
+
+const locale = typeof window !== "undefined" ? navigator.language: 'en';
+let lang;
+
+if( locale === 'es'){
+  lang=localeEsMessages;
+}
+else{
+  lang=localeEnMessages
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <IntlProvider locale={locale} messages= {lang}>
   <React.StrictMode>
     <Container>
       <Row xs={1}>
         <Col>
           <BrowserRouter>
-            <App />
+            
+              <App />
+            
           </BrowserRouter>
         </Col>
       </Row>
     </Container>
   </React.StrictMode>
+  </IntlProvider>, document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Password from "./LogginPasword";
 import './LoginStyles.css';
+import { FormattedMessage } from "react-intl";
 
 function Login() {
   const [formValues, setFormValues] = useState({ email: "", password: "", favClass: "1" });
@@ -41,11 +42,17 @@ function Login() {
   return (
     <div class="all">
       <div class="forms">
-        <div class="title">Acceder</div>
-        <div class="subtitle">Usa tu cuenta de unialpes</div>
+        <div class="title">
+          <FormattedMessage id="Access"></FormattedMessage>
+        </div>
+        <div class="subtitle">
+        <FormattedMessage id="Use your Unialpes account"></FormattedMessage>
+        </div>
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-6" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>
+          <FormattedMessage id="Email address"></FormattedMessage>
+          </Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -56,7 +63,9 @@ function Login() {
           <Form.Control.Feedback type="invalid">Please enter a valid email address.</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>
+            <FormattedMessage id="Password"></FormattedMessage>
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -70,13 +79,15 @@ function Login() {
           <Form.Control.Feedback type="invalid">Password should meet the criteria mentioned above.</Form.Control.Feedback>
         </Form.Group>
         <div class="footer">
-          <a class="olvidaste">Olvidaste tu correo elctronico</a>
+          <a class="olvidaste">
+            <FormattedMessage id="Has forgotten your password"></FormattedMessage>
+          </a>
           <div class="wrapper-buttons">
           <div class="crearCuenta">
-            Crear Cuenta
+          <FormattedMessage id="Create Account"></FormattedMessage>
           </div>
           <Button variant="primary" type="submit">
-            siguiente
+            <FormattedMessage id="Next"/>
           </Button>
           </div>
         </div>
